@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🎂 Selamat Ulang Tahun</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
@@ -12,12 +13,12 @@
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    body {
       font-family: 'Poppins', sans-serif;
       background: #000;
-      overflow: hidden;
       color: white;
+      overflow: hidden;
+      height: 100vh;
     }
 
     #particles-js {
@@ -25,7 +26,6 @@
       width: 100%;
       height: 100%;
       z-index: 0;
-      background: radial-gradient(circle at center, #0a0a0a, #000);
     }
 
     .overlay {
@@ -37,57 +37,87 @@
       z-index: 1;
     }
 
-    .card {
+    .container {
       position: relative;
       z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 25px;
-      padding: 35px 30px;
+      padding: 40px 35px;
       width: 95%;
-      max-width: 600px;
-      text-align: center;
-      backdrop-filter: blur(25px);
+      max-width: 700px;
+      min-height: 45vh;
+      backdrop-filter: blur(30px);
       box-shadow: 0 0 50px rgba(168, 85, 247, 0.75);
-      margin: auto;
-      top: 50%;
-      transform: translateY(-50%);
+      text-align: center;
+      display: none;
+      animation: fade 1s ease forwards;
+    }
+
+    .card.active {
+      display: block;
     }
 
     h1 {
-      font-size: 2.2em;
+      font-size: 2.4em;
       margin-bottom: 15px;
     }
 
     p {
-      font-size: 1.05em;
+      font-size: 1.25em;
       margin-bottom: 25px;
       color: #ddd;
     }
 
     .spotify-player {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.6);
+      margin: 15px 0;
     }
 
     .footer {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #bbb;
+    }
+
+    button {
       margin-top: 20px;
-      font-size: 0.85em;
-      color: #aaa;
+      padding: 12px 25px;
+      font-size: 1em;
+      background: #a855f7;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #9333ea;
+    }
+
+    @keyframes fade {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
 
     @media screen and (max-width: 480px) {
       .card {
-        padding: 20px;
+        padding: 25px;
       }
 
       h1 {
-        font-size: 1.7em;
+        font-size: 2em;
       }
 
       p {
-        font-size: 0.95em;
+        font-size: 1.1em;
       }
     }
   </style>
@@ -97,24 +127,51 @@
   <div id="particles-js"></div>
   <div class="overlay"></div>
 
-  <div class="card">
-    <h1>🎉 Selamat Ulang Tahun!</h1>
-    <p>Semoga hidupmu selalu penuh irama indah seperti lagu ini 💜</p>
-
-    <div class="spotify-player">
-      <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/601B70tfj8clHEKN1KObRc?utm_source=generator"
-        width="100%" height="100" frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="lazy"></iframe>
+  <div class="container">
+    <!-- Tampilan 1 -->
+    <div class="card active" id="card1">
+      <h1>🎉 Selamat Ulang Tahun!</h1>
+      <p>Semoga hidupmu selalu penuh irama indah seperti lagu ini 💜</p>
+      <div class="spotify-player">
+        <iframe style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/601B70tfj8clHEKN1KObRc?utm_source=generator"
+          width="100%" height="100" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+      </div>
+      <button onclick="next()">💌 Lihat Pesan</button>
     </div>
 
-    <div class="footer">Lagu: "Consume" - Chase Atlantic</div>
+    <!-- Tampilan 2 -->
+    <div class="card" id="card2">
+      <h1>📝 Pesan Buat Kamu</h1>
+      <p>
+        Maaf ya sayanggg jika di hari spesialmu aku ga bisa ngasih apa-apa.  
+        Aku cuman bisa doain kamu yang terbaik.  
+        Semoga sehat selalu, panjang umur, bahagia selalu, dan semoga rasa sayang kamu ke aku  
+        gak akan pernah berubah ya sayang.  
+        Selamat bertambah usia sayanggggggkuuu 💜  
+        Maaf kalo gabisa ngasih apa-apa 😔
+      </p>
+      <div class="spotify-player">
+        <iframe style="border-radius:12px"
+          src="https://open.spotify.com/embed/track/601B70tfj8clHEKN1KObRc?utm_source=generator"
+          width="100%" height="100" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"></iframe>
+      </div>
+      <div class="footer">Lagu: "Consume" – Chase Atlantic</div>
+    </div>
   </div>
 
   <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
+    function next() {
+      document.getElementById("card1").classList.remove("active");
+      document.getElementById("card2").classList.add("active");
+    }
+
     particlesJS("particles-js", {
       particles: {
         number: { value: 100 },
@@ -131,11 +188,7 @@
         },
         move: {
           enable: true,
-          speed: 1.5,
-          direction: "none",
-          random: false,
-          straight: false,
-          bounce: false
+          speed: 1.5
         }
       },
       interactivity: {
@@ -146,9 +199,7 @@
         modes: {
           grab: {
             distance: 200,
-            line_linked: {
-              opacity: 0.7
-            }
+            line_linked: { opacity: 0.7 }
           }
         }
       },
