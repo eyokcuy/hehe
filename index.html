@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Selamat Ulang Tahun 🎉</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      background: #000;
+      color: white;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+    }
+
+    .card {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 25px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+      margin: auto;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .card h1 {
+      font-size: 1.6em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .card p {
+      font-size: 0.95em;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    .spotify-player {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    .footer {
+      margin-top: 15px;
+      font-size: 0.75em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles-js"></div>
+  <div class="overlay"></div>
+
+  <div class="card">
+    <h1>🎉 Selamat Ulang Tahun!</h1>
+    <p>Semoga hidupmu selalu penuh irama indah seperti lagu ini 💜</p>
+
+    <div class="spotify-player">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/track/601B70tfj8clHEKN1KObRc?utm_source=generator"
+        width="100%" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy"></iframe>
+    </div>
+
+    <div class="footer">Lagu: "Consume" - Chase Atlantic</div>
+  </div>
+
+  <!-- Load particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 60 },
+        color: { value: "#a855f7" },
+        shape: { type: "circle" },
+        opacity: { value: 0.6 },
+        size: { value: 3 },
+        line_linked: {
+          enable: true,
+          distance: 130,
+          color: "#a855f7",
+          opacity: 0.3,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: false,
+          straight: false,
+          bounce: false
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: "repulse" },
+          onclick: { enable: false }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+
+</body>
+</html>
