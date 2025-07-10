@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy birthday cinta🤍</title></title>
+  <title>🎂 Selamat Ulang Tahun</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
@@ -47,6 +47,7 @@
     }
 
     .card {
+      position: absolute;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 25px;
@@ -57,12 +58,16 @@
       backdrop-filter: blur(30px);
       box-shadow: 0 0 50px rgba(168, 85, 247, 0.75);
       text-align: center;
-      display: none;
-      animation: fade 1s ease forwards;
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      transition: all 0.6s ease;
     }
 
     .card.active {
-      display: block;
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
     }
 
     h1 {
@@ -80,12 +85,6 @@
       margin: 15px 0;
     }
 
-    .footer {
-      margin-top: 15px;
-      font-size: 0.9em;
-      color: #bbb;
-    }
-
     button {
       margin-top: 20px;
       padding: 12px 25px;
@@ -100,11 +99,6 @@
 
     button:hover {
       background: #9333ea;
-    }
-
-    @keyframes fade {
-      from {opacity: 0;}
-      to {opacity: 1;}
     }
 
     @media screen and (max-width: 480px) {
@@ -130,7 +124,7 @@
   <div class="container">
     <!-- Tampilan 1 -->
     <div class="card active" id="card1">
-      <h1>🎉 HBD yaaa cantik🤍</h1>
+      <h1>🎉 Selamat Ulang Tahun!</h1>
       <p>Semoga hidupmu selalu penuh irama indah seperti lagu ini 💜</p>
       <div class="spotify-player">
         <iframe style="border-radius:12px"
@@ -146,11 +140,11 @@
     <div class="card" id="card2">
       <h1>📝 Pesan Buat Kamu</h1>
       <p>
-        Maaf ya sayanggg jika di hari spesialmu aku ga bisa ngasih apa-apa.  
-        Aku cuman bisa doain kamu yang terbaik.  
+        Maaf ya sayanggg jika di hari spesialmu aku ga bisa ngasih apa-apa.<br>
+        Aku cuman bisa doain kamu yang terbaik.<br>
         Semoga sehat selalu, panjang umur, bahagia selalu, dan semoga rasa sayang kamu ke aku  
-        gak akan pernah berubah ya sayang.  
-        Selamat bertambah usia sayanggggggkuuu 💜  
+        gak akan pernah berubah ya sayang.<br>
+        Selamat bertambah usia sayanggggggkuuu 💜<br>
         Maaf kalo gabisa ngasih apa-apa 😔
       </p>
       <div class="spotify-player">
@@ -160,16 +154,17 @@
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy"></iframe>
       </div>
-      <div class="footer">Have a nice day</div>
-    </div>Have a nice day
+    </div>
   </div>
 
-  <!-- Particles.js -->
+  <!-- Script Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     function next() {
-      document.getElementById("card1").classList.remove("active");
-      document.getElementById("card2").classList.add("active");
+      const c1 = document.getElementById("card1");
+      const c2 = document.getElementById("card2");
+      c1.classList.remove("active");
+      c2.classList.add("active");
     }
 
     particlesJS("particles-js", {
